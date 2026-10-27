@@ -71,7 +71,7 @@ Os dois devem mostrar um número de versão. Se aparecer "command not found", fe
 1. Abre o painel de extensões (`Ctrl+Shift+X`).
 2. Procura **LaTeX Workshop** (publicador: James Yu) e clica em **Install**.
 
-![LaTeX Workshop no painel de extensões](images/03-latex-workshop.png)
+![LaTeX Workshop no painel de extensões](images/03-latex-workshop.png.png)
 
 ## Passo 4: Compilar o primeiro PDF
 
