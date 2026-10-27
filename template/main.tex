@@ -1,0 +1,25 @@
+\documentclass[12pt,a4paper]{report}
+
+% Packages and settings live in config/ to keep this file short.
+\input{config/packages}
+\input{config/settings}
+
+\begin{document}
+
+% ---------- Front matter ----------
+\pagenumbering{roman}
+\input{frontmatter/titlepage}
+\input{frontmatter/abstract}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+% ---------- Body ----------
+\input{body/01-introduction}
+\input{body/02-methods}
+\input{body/03-conclusion}
+
+% ---------- Back matter ----------
+\input{backmatter/references}
+
+\end{document}

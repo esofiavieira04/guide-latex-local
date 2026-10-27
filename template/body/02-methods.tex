@@ -1,0 +1,28 @@
+\chapter{Methods}
+\label{chap:methods}
+
+\section{A table}
+
+Table~\ref{tab:example} shows a simple table. Its source is in \texttt{tables/}.
+
+\input{tables/example-table}
+
+\section{A figure}
+
+Put image files in \texttt{figures/} and include them like this:
+
+\begin{verbatim}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{my-image.png}
+  \caption{My caption.}
+  \label{fig:my-image}
+\end{figure}
+\end{verbatim}
+
+\section{An equation}
+
+\begin{equation}
+  E = mc^2
+  \label{eq:energy}
+\end{equation}
