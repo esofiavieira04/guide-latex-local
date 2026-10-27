@@ -10,7 +10,7 @@ Esta é a configuração que uso para escrever LaTeX: um editor (**VS Code** ou 
 
 ## O que precisas
 
-- Um computador com Windows ou Ubuntu. Outras distribuições Linux também servem, só mudam os nomes dos pacotes.
+- Um computador com Windows ou Ubuntu.
 - Internet e cerca de 5 GB livres. A distribuição LaTeX é a parte mais pesada.
 - Uma conta [GitHub](https://github.com) gratuita.
 
@@ -35,8 +35,6 @@ Escolhe um. O resto do guia é igual para os dois.
 
 No Windows, mantém as opções por defeito. No Ubuntu, usa o pacote `.deb` se houver, ou segue os passos da página de download.
 
-![Editor instalado e aberto](images/01-editor-installed.png)
-
 ## Passo 2: Instalar uma distribuição LaTeX e as dependências
 
 O projeto LaTeX Workshop recomenda o **TeX Live**, que funciona em Windows e Linux. O **MiKTeX** é uma opção mais leve no Windows, mas tens de instalar o Perl à parte (vê a nota abaixo).
@@ -49,24 +47,13 @@ O projeto LaTeX Workshop recomenda o **TeX Live**, que funciona em Windows e Lin
 
 > **Preferes MiKTeX?** Instala o MiKTeX e depois instala também o Perl (por exemplo [Strawberry Perl](https://strawberryperl.com)). Sem Perl, o `latexmk` falha e o LaTeX Workshop não consegue compilar.
 
-![Instalador do TeX Live no Windows](images/02-texlive-windows.png)
-
 ### Ubuntu
 
 Abre um terminal e corre:
 
 ```bash
-sudo apt update
-sudo apt install texlive-latex-extra texlive-fonts-recommended texlive-lang-european latexmk
-```
-
-Chega para a maioria dos relatórios e teses. Se não queres preocupar-te com pacotes em falta, instala tudo (vários GB):
-
-```bash
 sudo apt install texlive-full latexmk
 ```
-
-![Terminal no Ubuntu a instalar o TeX Live](images/02-texlive-ubuntu.png)
 
 ### Verificar que funciona
 
@@ -86,10 +73,6 @@ Os dois devem mostrar um número de versão. Se aparecer "command not found", fe
 
 ![LaTeX Workshop no painel de extensões](images/03-latex-workshop.png)
 
-**VS Code:** instala-se diretamente a partir do Visual Studio Marketplace. Não há mais nada a fazer.
-
-**Antigravity:** segundo relatos de utilizadores, vai buscar as extensões ao registo [Open VSX](https://open-vsx.org) por defeito. Se a instalação falhar com um erro de limite de pedidos ou "unable to download", espera um minuto e tenta outra vez. Ou descarrega o ficheiro `.vsix` da página do LaTeX Workshop no Open VSX e usa *Extensions → ⋯ → Install from VSIX*.
-
 ## Passo 4: Compilar o primeiro PDF
 
 1. Obtém o template (vê o Passo 6 para a forma com Git) ou, para já, cria uma pasta com um `main.tex` e abre-a com *File → Open Folder*.
@@ -99,9 +82,7 @@ Os dois devem mostrar um número de versão. Se aparecer "command not found", fe
 
 O LaTeX Workshop volta a compilar o PDF sempre que guardas. Usa `Ctrl+Clique` no PDF para saltar para a linha correspondente no código.
 
-![Pré-visualização do PDF ao lado do código](images/04-pdf-preview.png)
-
-Se a compilação falhar, abre o painel **Problems** e o output do **LaTeX Workshop** (View → Output) para leres o erro. Vê [Problemas comuns](#problemas-comuns).
+Se a compilação falhar, abre o painel **Problems** e o output do **LaTeX Workshop** (View → Output) para leres o erro.
 
 ## Passo 5: Instalar e configurar o Git
 
@@ -119,14 +100,12 @@ git config --global user.email "tu@exemplo.com"
 
 Usa o mesmo email da tua conta GitHub.
 
-![Git configurado no terminal](images/05-git-config.png)
-
 ## Passo 6: Começar o projeto a partir do template
 
 1. No GitHub, cria um repositório novo. Dá-lhe um nome e escolhe **Private**, que recomendo para trabalhos de unidades curriculares e teses.
 2. Copia o endereço dele (botão verde **Code**, separador HTTPS).
 3. No editor, abre a Command Palette (`Ctrl+Shift+P`), corre **Git: Clone**, cola o endereço e escolhe uma pasta.
-4. Descarrega este repositório (botão verde **Code**, depois **Download ZIP**) e descomprime-o.
+4. Descarrega este repositório (botão verde **Code**, depois **Download ZIP**) e descomprime-o, ou usa outro template que tenhas.
 5. Copia **tudo o que está dentro da pasta `template/`** para a pasta que clonaste, de forma a que o `main.tex` fique na raiz do teu projeto.
 6. Abre o `main.tex` e compila (Passo 4).
 
@@ -137,9 +116,7 @@ git clone https://github.com/O-TEU-UTILIZADOR/O-TEU-REPOSITORIO.git
 cd O-TEU-REPOSITORIO
 ```
 
-![Clonar um repositório no editor](images/06-clone-repo.png)
-
-### Estrutura do template
+### A estrutura do template
 
 ```
 main.tex            o único ficheiro que compilas
@@ -150,7 +127,7 @@ backmatter/         referências e bibliografia
 figures/            imagens
 tables/             código das tabelas
 examples/           excertos para reutilizar
-.gitignore          deixa de fora do Git os ficheiros auxiliares do LaTeX e o PDF
+.gitignore          deixa de fora do Git os ficheiros auxiliares do LaTeX
 ```
 
 Muda o título e o autor em `config/settings.tex` e depois escreve os capítulos em `body/`.
@@ -172,8 +149,6 @@ git push
 ```
 
 À primeira vez, o GitHub pede-te que inicies sessão. Usa o início de sessão pelo browser que o editor ou o Git Credential Manager oferece. Se um terminal pedir palavra-passe, o que precisa é de um [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens), não da palavra-passe da conta.
-
-![Painel Source Control com um commit](images/07-source-control.png)
 
 ### Abrir o projeto noutro computador
 
@@ -197,8 +172,6 @@ git restore --source=<id> body/02-methods.tex   # recupera esse ficheiro como es
 
 O `git restore` altera o teu ficheiro de trabalho; faz commit se o quiseres guardar. Também podes ver todas as versões no GitHub, em **Commits**.
 
-![Histórico de commits no GitHub](images/08-history.png)
-
 ## Passo 9: Exportar o PDF final
 
 O PDF que vês no editor já é o resultado. Antes de entregares, garante que é uma compilação limpa e completa.
@@ -217,8 +190,6 @@ O PDF que vês no editor já é o resultado. Antes de entregares, garante que é
 3. **Confirma antes de enviar.** Abre o PDF e procura `??` (uma referência ou citação partida), páginas vazias, figuras em falta, e se o título e o autor estão certos. Lê o output do LaTeX Workshop à procura de linhas `Warning` sobre referências indefinidas.
 
 4. **Copia e muda o nome** para o que vais entregar, por exemplo `Nome_Relatorio_v1.pdf`.
-
-![Mostrar o main.pdf no explorador de ficheiros](images/09-export-pdf.png)
 
 ### Guardar uma cópia da versão final no Git
 

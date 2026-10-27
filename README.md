@@ -10,7 +10,7 @@ This is the setup I use to write LaTeX: an editor (**VS Code** or **Antigravity 
 
 ## What you need
 
-- A computer with Windows or Ubuntu. Other Linux distributions work too, only the package names change.
+- A computer with Windows or Ubuntu.
 - Internet and about 5 GB of free space. The LaTeX distribution is the big one.
 - A free [GitHub](https://github.com) account.
 
@@ -35,7 +35,6 @@ Pick one. The rest of the guide is the same for both.
 
 On Windows, keep the default options. On Ubuntu, use the `.deb` package if there is one, or follow the steps on the download page.
 
-![Editor installed and open](images/01-editor-installed.png)
 
 ## Step 2: Install a LaTeX distribution and its dependencies
 
@@ -49,24 +48,15 @@ The LaTeX Workshop project recommends **TeX Live**, and it works on Windows and 
 
 > **Using MiKTeX instead?** Install MiKTeX, then also install Perl (for example [Strawberry Perl](https://strawberryperl.com)). Without Perl, `latexmk` fails and LaTeX Workshop cannot build.
 
-![TeX Live installer on Windows](images/02-texlive-windows.png)
 
 ### Ubuntu
 
 Open a terminal and run:
 
-```bash
-sudo apt update
-sudo apt install texlive-latex-extra texlive-fonts-recommended texlive-lang-european latexmk
-```
-
-This is enough for most reports and theses. If you don't want to worry about missing packages, install everything instead (several GB):
 
 ```bash
 sudo apt install texlive-full latexmk
 ```
-
-![Terminal on Ubuntu installing texlive](images/02-texlive-ubuntu.png)
 
 ### Check that it works
 
@@ -86,9 +76,6 @@ Both should print a version number. If you see "command not found", close the te
 
 ![LaTeX Workshop in the Extensions panel](images/03-latex-workshop.png)
 
-**VS Code:** it installs straight from the Visual Studio Marketplace. Nothing else to do.
-
-**Antigravity:** users report that it gets extensions from the [Open VSX](https://open-vsx.org) registry by default. If the install fails with a rate-limit or "unable to download" error, wait a minute and try again. Or download the `.vsix` file from the LaTeX Workshop page on Open VSX and use *Extensions → ⋯ → Install from VSIX*.
 
 ## Step 4: Build your first PDF
 
@@ -99,9 +86,7 @@ Both should print a version number. If you see "command not found", close the te
 
 LaTeX Workshop rebuilds the PDF every time you save. Use `Ctrl+Click` on the PDF to jump to the matching line in the code.
 
-![PDF preview next to the source](images/04-pdf-preview.png)
-
-If the build fails, open the **Problems** panel and the **LaTeX Workshop** output (View → Output) to read the error. See [Troubleshooting](#troubleshooting).
+If the build fails, open the **Problems** panel and the **LaTeX Workshop** output (View → Output) to read the error.
 
 ## Step 5: Install and configure Git
 
@@ -119,14 +104,13 @@ git config --global user.email "you@example.com"
 
 Use the same email as your GitHub account.
 
-![Git configured in the terminal](images/05-git-config.png)
 
 ## Step 6: Start your project from the template
 
 1. On GitHub, create a new repository. Give it a name and choose **Private**, which I recommend for coursework and theses.
 2. Copy its address (green **Code** button, HTTPS tab).
 3. In your editor, open the Command Palette (`Ctrl+Shift+P`), run **Git: Clone**, paste the address and choose a folder.
-4. Download this repository (green **Code** button, then **Download ZIP**) and unzip it.
+4. Download this repository (green **Code** button, then **Download ZIP**) and unzip it or use another template that you have.
 5. Copy **everything inside the `template/` folder** into your cloned folder, so that `main.tex` sits at the root of your project.
 6. Open `main.tex` and build it (Step 4).
 
@@ -137,7 +121,6 @@ git clone https://github.com/YOUR-USER/YOUR-REPO.git
 cd YOUR-REPO
 ```
 
-![Cloning a repository in the editor](images/06-clone-repo.png)
 
 ### The template structure
 
@@ -150,7 +133,7 @@ backmatter/         references and bibliography
 figures/            images
 tables/             table sources
 examples/           snippets to reuse
-.gitignore          keeps LaTeX auxiliary files and the PDF out of Git
+.gitignore          keeps LaTeX auxiliary files out of Git
 ```
 
 Change the title and author in `config/settings.tex`, then write your chapters in `body/`.
@@ -173,7 +156,6 @@ git push
 
 The first time, GitHub asks you to sign in. Use the browser sign-in that the editor or Git Credential Manager offers. If a terminal asks for a password, it needs a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens), not your account password.
 
-![Source Control panel with a commit](images/07-source-control.png)
 
 ### Open the project on another computer
 
@@ -197,7 +179,6 @@ git restore --source=<id> body/02-methods.tex   # bring back that file as it was
 
 `git restore` changes your working file; commit it if you want to keep it. You can also browse every version on GitHub under **Commits**.
 
-![Commit history on GitHub](images/08-history.png)
 
 ## Step 9: Export the final PDF
 
@@ -218,7 +199,6 @@ The PDF you see in the editor is already the output. Before you hand it in, make
 
 4. **Copy it and rename it** to what you are submitting, for example `Name_Report_v1.pdf`.
 
-![Reveal main.pdf in the file explorer](images/09-export-pdf.png)
 
 ### Keep a copy of the final version in Git
 
