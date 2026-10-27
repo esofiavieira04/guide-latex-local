@@ -74,7 +74,7 @@ Both should print a version number. If you see "command not found", close the te
 1. Open the Extensions panel (`Ctrl+Shift+X`).
 2. Search for **LaTeX Workshop** (publisher: James Yu) and click **Install**.
 
-![LaTeX Workshop in the Extensions panel](images/03-latex-workshop.png)
+![LaTeX Workshop in the Extensions panel](images/03-latex-workshop.png.png)
 
 
 ## Step 4: Build your first PDF
